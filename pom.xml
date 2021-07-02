@@ -27,8 +27,8 @@
             <url>https://jitpack.io</url>
         </repository>
         <repository>
-            <id>lunarclient-public</id>
-            <url>https://maven.moonsworth.com/repository/lunarclient-public</url>
+            <id>lunarclient-private</id>
+            <url>https://lunarclient-947665438472.d.codeartifact.us-east-2.amazonaws.com/maven/maven/</url>
         </repository>
         <repository>
             <id>aikar</id>
