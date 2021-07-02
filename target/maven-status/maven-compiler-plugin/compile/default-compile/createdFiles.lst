@@ -1,0 +1,15 @@
+net\thisisnico\inventory\AbstractInventory.class
+net\thisisnico\utils\PlayerScoreboard.class
+net\thisisnico\commands\BasicCommand.class
+net\thisisnico\events\BasicHandler.class
+net\thisisnico\inventory\ItemLeftClick.class
+net\thisisnico\inventory\InventoryClickEvent.class
+net\thisisnico\inventory\ItemRightClick.class
+net\thisisnico\API.class
+net\thisisnico\inventory\HandClickEvent.class
+net\thisisnico\database\DB.class
+net\thisisnico\inventory\HandItemRightClick.class
+net\thisisnico\utils\PlayerToggle.class
+net\thisisnico\utils\Lunar.class
+net\thisisnico\inventory\InventoryEvents.class
+net\thisisnico\utils\PlayerHologram.class
