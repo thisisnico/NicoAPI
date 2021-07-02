@@ -10,6 +10,5 @@ net\thisisnico\inventory\HandClickEvent.class
 net\thisisnico\database\DB.class
 net\thisisnico\inventory\HandItemRightClick.class
 net\thisisnico\utils\PlayerToggle.class
-net\thisisnico\utils\Lunar.class
 net\thisisnico\inventory\InventoryEvents.class
 net\thisisnico\utils\PlayerHologram.class

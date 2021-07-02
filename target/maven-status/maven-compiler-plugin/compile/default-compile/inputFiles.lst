@@ -1,4 +1,14 @@
 C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\events\BasicHandler.java
-C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\API.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\inventory\HandClickEvent.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\utils\PlayerScoreboard.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\inventory\AbstractInventory.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\inventory\HandItemRightClick.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\inventory\ItemLeftClick.java
 C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\commands\BasicCommand.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\inventory\InventoryEvents.java
 C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\database\DB.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\inventory\InventoryClickEvent.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\utils\PlayerHologram.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\API.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\utils\PlayerToggle.java
+C:\Users\Nico\Documents\NicoAPI\src\main\java\net\thisisnico\inventory\ItemRightClick.java
