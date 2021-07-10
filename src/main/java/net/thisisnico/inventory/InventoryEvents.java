@@ -86,7 +86,7 @@ public class InventoryEvents implements Listener {
         if (item == null) return;
         if (e.isLeftClick()) {
             invLeftClickEvent.forEach((event, method) -> {
-                if (e.getInventory().getHolder() != e.getWhoClicked().getInventory().getHolder()
+                if (e.getInventory().getHolder() instanceof AbstractInventory
                         && item.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', event.name()))
                         && item.getType() == event.material()) {
                     try {
@@ -100,7 +100,7 @@ public class InventoryEvents implements Listener {
         }
         if (e.isRightClick()) {
             invRightClickEvent.forEach((event, method) -> {
-                if (e.getInventory().getHolder() != e.getWhoClicked().getInventory().getHolder()
+                if (e.getInventory().getHolder() instanceof AbstractInventory
                         && item.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', event.name()))
                         && item.getType() == event.material()) {
                     try {
