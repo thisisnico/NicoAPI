@@ -17,14 +17,6 @@ public class API extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if (!Bukkit.getPluginManager().isPluginEnabled("LunarClient-API")) {
-            getLogger().severe("*******************************");
-            getLogger().severe("Caution! LunarClientApi is not installed or enabled!");
-            getLogger().severe("This API will not work without it.");
-            getLogger().severe("*******************************");
-            Bukkit.getPluginManager().disablePlugin(this);
-            return;
-        }
         if (!Bukkit.getPluginManager().isPluginEnabled("ProtocolLib")) {
             getLogger().severe("*******************************");
             getLogger().severe("Caution! ProtocolLib is not installed or enabled!");
