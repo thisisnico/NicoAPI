@@ -9,6 +9,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -65,4 +67,8 @@ public abstract class AbstractInventory implements InventoryHolder {
 
     public abstract void generate(Player player);
 
+    @Override
+    public @NotNull Inventory getInventory() {
+        return inv;
+    }
 }
