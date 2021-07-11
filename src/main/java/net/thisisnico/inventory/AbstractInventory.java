@@ -24,12 +24,13 @@ public abstract class AbstractInventory implements InventoryHolder {
     Inventory inv = null;
 
     /**
-     * Called one time in <b>generate()</b> function. Sets the size of inventory/
+     * Called one time in <b>generate()</b> function.
      * @param i Size
+     * @param title Title of your inventory.
      */
-    protected void setSize(int i) {
+    protected void configure(int i, String title) {
         if (inv != null) return;
-        inv = Bukkit.createInventory(null, i);
+        inv = Bukkit.createInventory(this, i, Component.text(ChatColor.translateAlternateColorCodes('&', title)));
     }
 
     protected ItemStack item(Material material, String name) {
