@@ -82,15 +82,16 @@ public class InventoryEvents implements Listener {
 
     @EventHandler
     private void onInvClick(org.bukkit.event.inventory.InventoryClickEvent e) {
+        if (e.getClickedInventory() == null) return;
+        if (!(e.getClickedInventory().getHolder() instanceof AbstractInventory)) return;
         ItemStack item = e.getCurrentItem();
         if (item == null) return;
+        e.setCancelled(true);
         if (e.isLeftClick()) {
             invLeftClickEvent.forEach((event, method) -> {
-                if (e.getInventory().getHolder() instanceof AbstractInventory
-                        && item.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', event.name()))
+                if (item.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', event.name()))
                         && item.getType() == event.material()) {
                     try {
-                        e.setCancelled(true);
                         method.invoke(classes.get(method), e);
                     } catch (Exception ex) {
                         ex.printStackTrace();
@@ -100,11 +101,9 @@ public class InventoryEvents implements Listener {
         }
         if (e.isRightClick()) {
             invRightClickEvent.forEach((event, method) -> {
-                if (e.getInventory().getHolder() instanceof AbstractInventory
-                        && item.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', event.name()))
+                if (item.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', event.name()))
                         && item.getType() == event.material()) {
                     try {
-                        e.setCancelled(true);
                         method.invoke(classes.get(method), e);
                     } catch (Exception ex) {
                         ex.printStackTrace();
