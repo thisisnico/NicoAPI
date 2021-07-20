@@ -11,14 +11,7 @@ public class DB {
 
     private static Connection con;
 
-    private static String host;
-    private static String user;
-    private static String pass;
-
-    public static void connect(String connectionString, String user, String pass){
-        host = connectionString;
-        DB.user = user;
-        DB.pass = pass;
+    public static void connect(String connectionString, String user, String pass) {
         if (!isConnected()) {
             try {
                 con = DriverManager.getConnection(connectionString, user, pass);
@@ -26,12 +19,6 @@ public class DB {
                 throwables.printStackTrace();
             }
         }
-    }
-
-    @SneakyThrows
-    public static void reconnect() {
-        if (isConnected() && getConnection().isClosed())
-            connect(host, user, pass);
     }
 
     public static void disconnect() {
@@ -45,7 +32,6 @@ public class DB {
     }
 
     public static void update(String statement) {
-        reconnect();
         try {
             getConnection().prepareStatement(statement).executeUpdate();
         } catch (SQLException throwables) {
@@ -54,7 +40,6 @@ public class DB {
     }
 
     public static ResultSet query(String statement) {
-        reconnect();
         try {
             return getConnection().prepareStatement(statement).executeQuery();
         } catch (SQLException throwables) {

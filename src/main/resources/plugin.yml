@@ -1,6 +1,6 @@
 name: NicoAPI
 description: API for net.thisisnico plugins
-version: 3.0.1
+version: 3.0.2
 api-version: 1.16
 softdepend:
   - ProtocolLib
