@@ -15,9 +15,9 @@ public class PlayerToggle {
 
     public boolean toggle(Player player) {
         if (!is(player))
-            setEnabled(player);
+            enable(player);
         else
-            setDisabled(player);
+            disable(player);
         return is(player);
     }
 
