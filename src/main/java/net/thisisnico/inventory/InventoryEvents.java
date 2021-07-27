@@ -16,6 +16,7 @@ import java.util.Map;
 
 public class InventoryEvents implements Listener {
     private final Map<HandItemRightClick, Method> itemRightClickEvent = new HashMap<>();
+    private final Map<HandItemLeftClick, Method> itemLeftClickEvent = new HashMap<>();
     private final Map<ItemLeftClick, Method> invLeftClickEvent = new HashMap<>();
     private final Map<ItemRightClick, Method> invRightClickEvent = new HashMap<>();
 
@@ -30,11 +31,17 @@ public class InventoryEvents implements Listener {
         Method[] methods = c.getMethods();
 
         for (Method method : methods) {
-            HandItemRightClick annotation = method.getDeclaredAnnotation(HandItemRightClick.class);
-            if (annotation == null) continue;
+            HandItemRightClick right = method.getDeclaredAnnotation(HandItemRightClick.class);
+            HandItemLeftClick left = method.getDeclaredAnnotation(HandItemLeftClick.class);
 
-            itemRightClickEvent.put(annotation, method);
-            classes.put(method, asd);
+            if (right != null) {
+                itemRightClickEvent.put(right, method);
+                classes.put(method, asd);
+            }
+            if (left != null) {
+                itemLeftClickEvent.put(left, method);
+                classes.put(method, asd);
+            }
         }
     }
 
@@ -62,11 +69,24 @@ public class InventoryEvents implements Listener {
 
     @EventHandler
     private void onInteract(PlayerInteractEvent e) {
+        ItemStack item = e.getPlayer().getInventory().getItemInMainHand();
         if (e.getHand() == EquipmentSlot.HAND
-                && e.getAction() == Action.RIGHT_CLICK_AIR) {
-            ItemStack item = e.getPlayer().getInventory().getItemInMainHand();
-//            if (item.getType() != Material.AIR) return;
+                && (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)) {
             itemRightClickEvent.forEach((event, method) -> {
+                if (item.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', event.name()))
+                        && item.getType() == event.material()) {
+                    try {
+                        e.setCancelled(true);
+                        method.invoke(classes.get(method), e);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            });
+        }
+        if (e.getHand() == EquipmentSlot.HAND
+                && (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_AIR)) {
+            itemLeftClickEvent.forEach((event, method) -> {
                 if (item.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', event.name()))
                         && item.getType() == event.material()) {
                     try {
