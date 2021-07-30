@@ -70,6 +70,7 @@ public class InventoryEvents implements Listener {
     @EventHandler
     private void onInteract(PlayerInteractEvent e) {
         ItemStack item = e.getPlayer().getInventory().getItemInMainHand();
+        if (item.getType() == Material.AIR || item.getItemMeta() == null) return;
         if (e.getHand() == EquipmentSlot.HAND
                 && (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)) {
             itemRightClickEvent.forEach((event, method) -> {
